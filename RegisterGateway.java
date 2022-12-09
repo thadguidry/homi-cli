@@ -12,6 +12,7 @@ public class RegisterGateway implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
+        System.out.println("Register");
         return null;
     }
 }
