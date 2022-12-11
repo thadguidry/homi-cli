@@ -1,7 +1,7 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //DEPS info.picocli:picocli:4.6.3
 //DEPS org.yaml:snakeyaml:1.33
-//SOURCES RegisterGateway.java
+//SOURCES AddRoutes.java
 //SOURCES MergeYaml.java
 
 
@@ -13,7 +13,7 @@ import java.util.concurrent.Callable;
 
 @Command(name = "homi", mixinStandardHelpOptions = true, version = "HomiCli 0.1",
         description = "HomiCli made with jbang",
-        subcommands = {RegisterGateway.class,}
+        subcommands = {AddRoutes.class,}
 )
 class HomiCli implements Callable<Integer> {
 
