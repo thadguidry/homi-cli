@@ -1,0 +1,9 @@
+{
+  "catalogs": {},
+  "aliases": {
+    "homi": {
+      "script-ref": "https://github.com/homihq/homi-cli/blob/master/HomiCli.java"
+    }
+  },
+  "templates": {}
+}
