@@ -1,0 +1,13 @@
+api:
+  id: product-service
+  name: product-service
+  version: 0.1
+  routes:
+    - id: cache_request_body_route
+      uri: lb://downstream
+      predicates:
+        - Path=/downstream/**
+      filters:
+        - name: CacheRequestBody
+          args:
+            bodyClass: java.lang.String

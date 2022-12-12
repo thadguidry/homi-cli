@@ -1,6 +1,8 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //DEPS info.picocli:picocli:4.6.3
 //DEPS org.yaml:snakeyaml:1.33
+//DEPS com.konghq:unirest-java:3.14.1
+//DEPS com.konghq:unirest-objectmapper-jackson:3.14.1
 //SOURCES AddRoutes.java
 //SOURCES MergeYaml.java
 
@@ -28,4 +30,6 @@ class HomiCli implements Callable<Integer> {
         System.out.println("Hello HomiCli 0.1");
         return 0;
     }
+
+
 }

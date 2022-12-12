@@ -1,6 +1,9 @@
+import kong.unirest.Unirest;
+
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
 
+import java.io.File;
 import java.util.concurrent.Callable;
 
 @CommandLine.Command(name = "addRoutes", mixinStandardHelpOptions = true, version = "HomiCli 0.2",
@@ -22,7 +25,20 @@ public class AddRoutes implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         System.out.println("addRoutes");
+
+        Unirest.post(platformUrl)
+                .header("accept", "application/json")
+                .header("Content-Type", "application/json")
+                .field("gatewayKey", gatewayKey)
+                .field("orgId", orgId)
+                .field("orgId", orgId)
+                .field("file", new File(routeFile))
+                .asEmpty();
+
+
         return 0;
     }
+
+
 }
 
