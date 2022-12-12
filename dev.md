@@ -14,6 +14,10 @@ Finally install homi cli app
 
 jbang app install homi@homihq.com
 
+## Refresh 
+
+jbang app install --force --fresh  homi@homihq.com
+
 ## Run command
 
 $ homi register
