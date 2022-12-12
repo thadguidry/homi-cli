@@ -27,11 +27,8 @@ public class AddRoutes implements Callable<Integer> {
         System.out.println("addRoutes");
 
         Unirest.post(platformUrl)
-                .header("accept", "application/json")
-                .header("Content-Type", "application/json")
-                .field("gatewayKey", gatewayKey)
-                .field("orgId", orgId)
-                .field("orgId", orgId)
+                .header("X-GW-KEY", gatewayKey)
+                .header("X-ORG_ID", orgId)
                 .field("file", new File(routeFile))
                 .asEmpty();
 
