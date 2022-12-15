@@ -1,13 +1,16 @@
-api:
-  id: product-service
-  name: product-service
-  version: 0.1
-  routes:
-    - id: cache_request_body_route
-      uri: lb://downstream
-      predicates:
-        - Path=/downstream/**
-      filters:
-        - name: CacheRequestBody
-          args:
-            bodyClass: java.lang.String
+id: product-service
+name: product-service
+version: 0.0.2
+routes:
+  - id: httpbin_ip
+    uri: https://httpbin.org/
+    predicates:
+    - Path=/ip
+    filters:
+    - AddRequestHeader=X-Request-red, blue
+  - id: httpbin_headers
+    uri: https://httpbin.org/
+    predicates:
+      - Path=/headers
+    filters:
+    - AddRequestHeader=X-Request-COLOR, blue
