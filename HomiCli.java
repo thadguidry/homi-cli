@@ -4,7 +4,7 @@
 //DEPS com.konghq:unirest-java:3.14.1
 //DEPS com.konghq:unirest-objectmapper-jackson:3.14.1
 //SOURCES AddRoutes.java
-//SOURCES MergeYaml.java
+//SOURCES GenerateRest.java
 
 
 import picocli.CommandLine;
