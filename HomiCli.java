@@ -15,7 +15,7 @@ import java.util.concurrent.Callable;
 
 @Command(name = "homi", mixinStandardHelpOptions = true, version = "HomiCli 0.1",
         description = "HomiCli made with jbang",
-        subcommands = {AddRoutes.class,}
+        subcommands = {GenerateRest.class}
 )
 class HomiCli implements Callable<Integer> {
 
