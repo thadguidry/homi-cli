@@ -6,6 +6,7 @@ import picocli.CommandLine;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.nio.file.StandardCopyOption;
 import java.util.concurrent.Callable;
 
 
@@ -50,7 +51,7 @@ public class GenerateRest implements Callable<Integer> {
                 ;
 
         File result = Unirest.get(url)
-                .asFile(generator.getName() + ".zip")
+                .asFile(generator.getName() + ".zip", StandardCopyOption.REPLACE_EXISTING)
                 .getBody();
 
         if(result.exists()) {
