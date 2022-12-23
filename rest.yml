@@ -1,0 +1,11 @@
+version: v1
+type: rest
+packageName: com.example.demo
+groupId: com.example
+db:
+  type: postgresql
+  ip: localhost
+  port: 5432
+  username: postgres
+  password:
+  dbname: pagila

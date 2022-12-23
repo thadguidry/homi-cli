@@ -3,8 +3,15 @@
 //DEPS org.yaml:snakeyaml:1.33
 //DEPS com.konghq:unirest-java:3.14.1
 //DEPS com.konghq:unirest-objectmapper-jackson:3.14.1
-//SOURCES AddRoutes.java
+//DEPS org.hibernate:hibernate-core:5.6.14.Final
+//DEPS org.hibernate:hibernate-tools:5.6.14.Final
+//DEPS org.postgresql:postgresql:42.5.1
+//DEPS net.lingala.zip4j:zip4j:2.11.2
 //SOURCES GenerateRest.java
+//SOURCES Generator.java
+//SOURCES DB.java
+//SOURCES tools/*.java
+//SOURCES tools/*.java
 
 
 import picocli.CommandLine;
