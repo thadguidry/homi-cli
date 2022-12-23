@@ -1,5 +1,3 @@
-package codegen;
-
 import org.apache.tools.ant.BuildException;
 import org.hibernate.cfg.reveng.OverrideRepository;
 import org.hibernate.cfg.reveng.ReverseEngineeringSettings;

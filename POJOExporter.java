@@ -1,6 +1,3 @@
-
-package codegen;
-
 public class POJOExporter extends GenericExporter {
 
 	private static final String POJO_JAVACLASS_FTL = "pojo/Pojo.ftl";

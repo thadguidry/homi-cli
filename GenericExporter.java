@@ -1,5 +1,3 @@
-package codegen;
-
 import org.hibernate.internal.util.StringHelper;
 import org.hibernate.mapping.Component;
 import org.hibernate.tool.hbm2x.ConfigurationNavigator;
