@@ -1,7 +1,5 @@
 package codegen;
 
-import codegen.DB;
-
 public class Generator {
     private String version;
     private String type;
