@@ -11,6 +11,7 @@
 //SOURCES DbConfig.java
 //SOURCES GeneratorConfig.java
 //SOURCES JpaGenerator.java
+//SOURCES codegen/*.java
 
 
 import picocli.CommandLine;
