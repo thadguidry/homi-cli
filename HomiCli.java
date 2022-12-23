@@ -13,7 +13,7 @@
 //SOURCES JpaGenerator.java
 //SOURCES AbstractJpaGenerator.java
 //SOURCES AbstractExporter.java
-//SOURCES GenericExporter.javac
+//SOURCES GenericExporter.java
 //SOURCES POJOExporter.java
 
 
