@@ -11,7 +11,10 @@
 //SOURCES DbConfig.java
 //SOURCES GeneratorConfig.java
 //SOURCES JpaGenerator.java
+//SOURCES AbstractJpaGenerator.java
+//SOURCES AbstractExporter.java
 //SOURCES POJOExporter.java
+
 
 
 import picocli.CommandLine;
