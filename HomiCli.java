@@ -8,8 +8,6 @@
 //DEPS org.postgresql:postgresql:42.5.1
 //DEPS net.lingala.zip4j:zip4j:2.11.2
 //SOURCES GenerateRest.java
-//SOURCES codegen.Generator.java
-//SOURCES codegen.DB.java
 //SOURCES codegen/*.java
 
 
