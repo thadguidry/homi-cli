@@ -22,6 +22,7 @@ public class JpaGenerator extends AbstractJpaGenerator {
         pojoExporter.setMetadataDescriptor(metadataDescriptor);
         pojoExporter.setOutputDirectory(outputDirectory);
 
+
         System.out.println("Starting POJO export to directory: " + outputDirectory + "...");
         pojoExporter.start();
         System.out.println("Metadata: " + pojoExporter.getMetadata().collectTableMappings() );
