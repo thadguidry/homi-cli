@@ -1,5 +1,3 @@
-package codegen;
-
 public class Generator {
     private String version;
     private String type;

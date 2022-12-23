@@ -8,7 +8,9 @@
 //DEPS org.postgresql:postgresql:42.5.1
 //DEPS net.lingala.zip4j:zip4j:2.11.2
 //SOURCES GenerateRest.java
-//SOURCES codegen/*.java
+//SOURCES DB.java
+//SOURCES Generator.java
+//SOURCES codegen/JpaGenerator.java
 
 
 import picocli.CommandLine;

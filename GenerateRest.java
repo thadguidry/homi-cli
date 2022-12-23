@@ -1,5 +1,4 @@
 
-import codegen.Generator;
 import org.yaml.snakeyaml.Yaml;
 import picocli.CommandLine;
 import codegen.JpaGenerator;
