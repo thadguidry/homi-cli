@@ -1,7 +1,6 @@
 
 import org.yaml.snakeyaml.Yaml;
 import picocli.CommandLine;
-import codegen.JpaGenerator;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,8 +49,8 @@ public class GenerateRest implements Callable<Integer> {
         */
 
         Yaml yaml = new Yaml();
-        Generator generator =
-                yaml.loadAs(new FileInputStream(new File(configFile)), Generator.class);
+        GeneratorConfig generatorConfig =
+                yaml.loadAs(new FileInputStream(new File(configFile)), GeneratorConfig.class);
 
         JpaGenerator jpaGenerator = new JpaGenerator();
         jpaGenerator.execute();

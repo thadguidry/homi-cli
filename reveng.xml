@@ -28,10 +28,10 @@
          is done for a specific table -->
     <table name="ORDERS">
         <primary-key>
-            <!-- setting up a specific id generator for a table -->
-            <generator class="sequence">
+            <!-- setting up a specific id generatorConfig for a table -->
+            <generatorConfig class="sequence">
                 <param name="table">seq_table</param>
-            </generator>
+            </generatorConfig>
             <key-column name="CUSTID"/>
         </primary-key>
         <column name="NAME" property="orderName" type="string" />

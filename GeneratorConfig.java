@@ -1,10 +1,10 @@
-public class Generator {
+public class GeneratorConfig {
     private String version;
     private String type;
 
     private String packageName;
     private String groupId;
-    private DB db;
+    private DbConfig dbConfig;
 
     public String getVersion() { return version; }
     public void setVersion(String value) { this.version = value; }
@@ -28,6 +28,6 @@ public class Generator {
         this.packageName = packageName;
     }
 
-    public DB getDb() { return db; }
-    public void setDb(DB value) { this.db = value; }
+    public DbConfig getDb() { return dbConfig; }
+    public void setDb(DbConfig value) { this.dbConfig = value; }
 }

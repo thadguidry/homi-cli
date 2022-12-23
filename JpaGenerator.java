@@ -1,6 +1,5 @@
-package codegen;
-
-
+import codegen.AbstractJpaGenerator;
+import codegen.POJOExporter;
 import org.hibernate.tool.api.metadata.MetadataDescriptor;
 
 import java.io.File;

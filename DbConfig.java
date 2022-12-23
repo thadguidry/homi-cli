@@ -1,4 +1,4 @@
-public class DB {
+public class DbConfig {
     private String type;
     private String ip;
     private long port;
