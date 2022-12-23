@@ -2,4 +2,4 @@ packageName: com.example.demo
 groupId: com.example
 description: IMDB API
 name: imbdapi
-database:
+database: postgresql

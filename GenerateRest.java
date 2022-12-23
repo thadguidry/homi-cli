@@ -54,7 +54,7 @@ public class GenerateRest implements Callable<Integer> {
                 .getBody();
 
         if(result.exists()) {
-            new ZipFile(result).extractAll("/Users/dhrubo/Downloads/generator");
+            new ZipFile(result).extractAll("./");
         }
         else{
             System.out.println("Unable to unzip the file.");
