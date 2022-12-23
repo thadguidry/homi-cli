@@ -2,6 +2,8 @@ version: v1
 type: rest
 packageName: com.example.demo
 groupId: com.example
+description: IMDB API
+name: imbdapi
 db:
   type: postgresql
   ip: localhost

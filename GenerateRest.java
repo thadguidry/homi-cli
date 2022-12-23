@@ -1,4 +1,6 @@
 
+import kong.unirest.Unirest;
+import net.lingala.zip4j.ZipFile;
 import org.yaml.snakeyaml.Yaml;
 import picocli.CommandLine;
 
@@ -22,11 +24,11 @@ public class GenerateRest implements Callable<Integer> {
                     "type=maven-project" +
                     "&language=java" +
                     "&bootVersion=2.7.6" +
-                    "&baseDir=demo" +
+                    "&baseDir=#name#" +
                     "&groupId=#groupId#" +
-                    "&artifactId=demo" +
-                    "&name=demo" +
-                    "&description=Demo project for Spring Boot" +
+                    "&artifactId=#name#" +
+                    "&name=#name#" +
+                    "&description=#description#" +
                     "&packageName=#packageName#" +
                     "&packaging=jar" +
                     "&javaVersion=17" +
@@ -35,10 +37,16 @@ public class GenerateRest implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         System.out.println("Hello rest");
-        /*
+
+        Yaml yaml = new Yaml();
+        GeneratorConfig generator =
+                yaml.loadAs(new FileInputStream(new File(configFile)), GeneratorConfig.class);
 
         String url = this.nonReactiveAPIUrl.replace("#groupId#", generator.getGroupId())
-                .replace("#packageName#", generator.getPackageName());
+                .replace("#packageName#", generator.getPackageName())
+                .replace("#description#", generator.getDescription())
+                .replace("#name#", generator.getName())
+                ;
 
         File result = Unirest.get(url)
                 .asFile("/Users/dhrubo/Downloads/generator/demo.zip")
@@ -46,15 +54,12 @@ public class GenerateRest implements Callable<Integer> {
 
 
         new ZipFile(result).extractAll("/Users/dhrubo/Downloads/generator");
-        */
 
-        Yaml yaml = new Yaml();
-        GeneratorConfig generatorConfig =
-                yaml.loadAs(new FileInputStream(new File(configFile)), GeneratorConfig.class);
+        /*
 
         JpaGenerator jpaGenerator = new JpaGenerator();
         jpaGenerator.execute();
-
+        */
         return 0;
     }
 
