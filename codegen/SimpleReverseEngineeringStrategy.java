@@ -1,4 +1,4 @@
-package tools;
+package codegen;
 
 import org.hibernate.cfg.reveng.DelegatingReverseEngineeringStrategy;
 import org.hibernate.cfg.reveng.ReverseEngineeringStrategy;

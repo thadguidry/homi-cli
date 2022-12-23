@@ -1,7 +1,7 @@
-package tools;
+package codegen;
 
 import org.apache.tools.ant.BuildException;
-import org.hibernate.cfg.reveng.DefaultReverseEngineeringStrategy;
+import org.hibernate.cfg.reveng.OverrideRepository;
 import org.hibernate.cfg.reveng.ReverseEngineeringSettings;
 import org.hibernate.cfg.reveng.ReverseEngineeringStrategy;
 import org.hibernate.tool.api.metadata.MetadataDescriptor;
@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public abstract class AbstractHbm2xMojo  {
+public abstract class AbstractJpaGenerator {
 
     // For reveng strategy
     /** The default package name to use when mappings for classes are created. */
@@ -53,7 +53,7 @@ public abstract class AbstractHbm2xMojo  {
     private boolean preferBasicCompositeIds = true;
 
     public void execute() {
-        System.out.println("Starting " + this.getClass().getSimpleName() + "...");
+        System.out.println("1. Starting " + this.getClass().getSimpleName() + "...");
         ReverseEngineeringStrategy strategy = setupReverseEngineeringStrategy();
         if (propertyFile.exists()) {
         	executeExporter(createJdbcDescriptor(strategy, loadPropertiesFile()));
@@ -64,8 +64,18 @@ public abstract class AbstractHbm2xMojo  {
     }
 
     private ReverseEngineeringStrategy setupReverseEngineeringStrategy() {
-        ReverseEngineeringStrategy strategy = new SimpleReverseEngineeringStrategy(new DefaultReverseEngineeringStrategy());
+        ReverseEngineeringStrategy strategy;
+        try {
+            strategy = ReverseEngineeringStrategy.class.cast(Class.forName(revengStrategy).newInstance());
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | ClassCastException e) {
+            throw new BuildException(revengStrategy + " not instanced.", e);
+        }
 
+        if (revengFile != null) {
+            OverrideRepository override = new OverrideRepository();
+            override.addFile(revengFile);
+            strategy = override.getReverseEngineeringStrategy(strategy);
+        }
 
         ReverseEngineeringSettings settings =
                 new ReverseEngineeringSettings(strategy)

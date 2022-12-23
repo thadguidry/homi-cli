@@ -1,5 +1,5 @@
 
-package tools;
+package codegen;
 
 import org.hibernate.boot.Metadata;
 import org.hibernate.internal.util.ReflectHelper;

@@ -8,10 +8,9 @@
 //DEPS org.postgresql:postgresql:42.5.1
 //DEPS net.lingala.zip4j:zip4j:2.11.2
 //SOURCES GenerateRest.java
-//SOURCES Generator.java
-//SOURCES DB.java
-//SOURCES tools/*.java
-//SOURCES tools/*.java
+//SOURCES codegen.Generator.java
+//SOURCES codegen.DB.java
+//SOURCES codegen/*.java
 
 
 import picocli.CommandLine;
@@ -33,8 +32,8 @@ class HomiCli implements Callable<Integer> {
     }
 
     @Override
-    public Integer call() throws Exception { // your business logic goes here...
-        System.out.println("Hello HomiCli 0.1");
+    public Integer call() throws Exception {
+        System.out.println("Hello HomiCli 0.2");
         return 0;
     }
 

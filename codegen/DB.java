@@ -1,3 +1,5 @@
+package codegen;
+
 public class DB {
     private String type;
     private String ip;
