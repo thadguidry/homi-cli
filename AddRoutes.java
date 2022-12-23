@@ -6,6 +6,7 @@ import picocli.CommandLine.Option;
 import java.io.File;
 import java.util.concurrent.Callable;
 
+@Deprecated
 @CommandLine.Command(name = "addRoutes", mixinStandardHelpOptions = true, version = "HomiCli 0.2",
         description = "Add Routes to a gateway using CLI.")
 public class AddRoutes implements Callable<Integer> {
