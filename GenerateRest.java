@@ -55,7 +55,8 @@ public class GenerateRest implements Callable<Integer> {
                 .asFile(generator.getName() + ".zip", StandardCopyOption.REPLACE_EXISTING)
                 .getBody();
 
-        System.out.println("result -->" + result.getParentFile().getAbsolutePath());
+        String zipFileAbsolutePath = result.getAbsolutePath();
+        System.out.println("Zip file location : " + zipFileAbsolutePath);
 
         if(result.exists()) {
             new ZipFile(result).extractAll("./");
@@ -63,7 +64,8 @@ public class GenerateRest implements Callable<Integer> {
         else{
             System.out.println("Unable to extract the file.");
         }
-
+        String pomFolder = zipFileAbsolutePath.replace(".zip", "");
+        System.out.println("POM file location : " + pomFolder);
         //MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
         //FileInputStream fileInputStream = new FileInputStream("")
 
