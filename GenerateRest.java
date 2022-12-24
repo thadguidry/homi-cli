@@ -1,12 +1,16 @@
 
 import kong.unirest.Unirest;
 import net.lingala.zip4j.ZipFile;
+import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
+import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
 import org.yaml.snakeyaml.Yaml;
 import picocli.CommandLine;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.nio.file.StandardCopyOption;
 import java.util.concurrent.Callable;
 
@@ -34,7 +38,7 @@ public class GenerateRest implements Callable<Integer> {
                     "&packageName=#packageName#" +
                     "&packaging=jar" +
                     "&javaVersion=17" +
-                    "&dependencies=web,data-rest,oauth2-resource-server,#database#";
+                    "&dependencies=web,data-rest,#database#";
 
     @Override
     public Integer call() throws Exception {
@@ -66,8 +70,18 @@ public class GenerateRest implements Callable<Integer> {
         }
         String pomFolder = zipFileAbsolutePath.replace(".zip", "");
         System.out.println("POM file location : " + pomFolder);
-        //MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
-        //FileInputStream fileInputStream = new FileInputStream("")
+        MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
+        FileInputStream fileInputStream = new FileInputStream(pomFolder + "/pom.xml");
+        Model model = mavenXpp3Reader.read(fileInputStream);
+
+        Dependency dependency = new Dependency();
+        dependency.setGroupId("org.springframework.boot");
+        dependency.setArtifactId("spring-boot-starter-oauth2-resource-server");
+
+        model.getDependencies().add(dependency);
+        MavenXpp3Writer mavenXpp3Writer = new MavenXpp3Writer();
+        FileOutputStream fileOutputStream = new FileOutputStream(pomFolder + "/pom.xml");
+        mavenXpp3Writer.write(fileOutputStream, model);
 
         return 0;
     }
