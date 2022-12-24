@@ -1,6 +1,7 @@
 
 import kong.unirest.Unirest;
 import net.lingala.zip4j.ZipFile;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.yaml.snakeyaml.Yaml;
 import picocli.CommandLine;
 
@@ -54,12 +55,17 @@ public class GenerateRest implements Callable<Integer> {
                 .asFile(generator.getName() + ".zip", StandardCopyOption.REPLACE_EXISTING)
                 .getBody();
 
+        System.out.println("result -->" + result.getAbsolutePath());
+
         if(result.exists()) {
             new ZipFile(result).extractAll("./");
         }
         else{
             System.out.println("Unable to extract the file.");
         }
+
+        //MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
+        //FileInputStream fileInputStream = new FileInputStream("")
 
         return 0;
     }

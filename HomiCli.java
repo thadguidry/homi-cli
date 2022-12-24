@@ -7,8 +7,9 @@
 //DEPS org.hibernate:hibernate-tools:5.6.14.Final
 //DEPS org.postgresql:postgresql:42.5.1
 //DEPS net.lingala.zip4j:zip4j:2.11.2
+//DEPS org.apache.maven:maven-model:3.8.6
+
 //SOURCES GenerateRest.java
-//SOURCES DbConfig.java
 //SOURCES GeneratorConfig.java
 //SOURCES JpaGenerator.java
 //SOURCES AbstractJpaGenerator.java
