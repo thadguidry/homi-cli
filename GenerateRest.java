@@ -55,7 +55,7 @@ public class GenerateRest implements Callable<Integer> {
                 .asFile(generator.getName() + ".zip", StandardCopyOption.REPLACE_EXISTING)
                 .getBody();
 
-        System.out.println("result -->" + result.getParent());
+        System.out.println("result -->" + result.getParentFile().getAbsolutePath());
 
         if(result.exists()) {
             new ZipFile(result).extractAll("./");
