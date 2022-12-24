@@ -58,7 +58,7 @@ public class GenerateRest implements Callable<Integer> {
             new ZipFile(result).extractAll("./");
         }
         else{
-            System.out.println("Unable to unzip the file.");
+            System.out.println("Unable to extract the file.");
         }
 
         return 0;
