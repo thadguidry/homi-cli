@@ -70,6 +70,7 @@ public class GenerateRest implements Callable<Integer> {
         }
         String pomFolder = zipFileAbsolutePath.replace(".zip", "");
         System.out.println("POM file location : " + pomFolder);
+        /*
         MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
         FileInputStream fileInputStream = new FileInputStream(pomFolder + "/pom.xml");
         Model model = mavenXpp3Reader.read(fileInputStream);
@@ -82,7 +83,7 @@ public class GenerateRest implements Callable<Integer> {
         MavenXpp3Writer mavenXpp3Writer = new MavenXpp3Writer();
         FileOutputStream fileOutputStream = new FileOutputStream(pomFolder + "/pom.xml");
         mavenXpp3Writer.write(fileOutputStream, model);
-
+        */
         return 0;
     }
 
