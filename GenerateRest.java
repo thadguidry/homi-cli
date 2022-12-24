@@ -70,6 +70,11 @@ public class GenerateRest implements Callable<Integer> {
         }
         String pomFolder = zipFileAbsolutePath.replace(".zip", "");
         System.out.println("POM file location : " + pomFolder);
+
+
+        GithubHelper githubHelper = new GithubHelper();
+        githubHelper.init(pomFolder);
+
         /*
         MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
         FileInputStream fileInputStream = new FileInputStream(pomFolder + "/pom.xml");
