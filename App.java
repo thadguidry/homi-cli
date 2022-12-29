@@ -9,4 +9,5 @@ public class App {
     private String description;
     private String db;
     private String dbVersionManager;
+    private String [] environments;
 }
