@@ -8,6 +8,7 @@
 //DEPS org.slf4j:slf4j-api:2.0.6
 //DEPS org.projectlombok:lombok:1.18.24
 //SOURCES Recipe.java
+//SOURCES App.java
 //SOURCES GeneratorConfig.java
 //SOURCES GenerateRest.java
 //SOURCES InitProject.java
