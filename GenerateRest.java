@@ -72,10 +72,7 @@ public class GenerateRest implements Callable<Integer> {
         System.out.println("POM file location : " + pomFolder);
 
 
-        GithubHelper githubHelper = new GithubHelper();
-        githubHelper.init(pomFolder);
 
-        /*
         MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
         FileInputStream fileInputStream = new FileInputStream(pomFolder + "/pom.xml");
         Model model = mavenXpp3Reader.read(fileInputStream);
@@ -84,11 +81,17 @@ public class GenerateRest implements Callable<Integer> {
         dependency.setGroupId("org.springframework.boot");
         dependency.setArtifactId("spring-boot-starter-oauth2-resource-server");
 
+
+        model.getBuild().getPlugins();
+
         model.getDependencies().add(dependency);
         MavenXpp3Writer mavenXpp3Writer = new MavenXpp3Writer();
         FileOutputStream fileOutputStream = new FileOutputStream(pomFolder + "/pom.xml");
         mavenXpp3Writer.write(fileOutputStream, model);
-        */
+
+
+
+
         return 0;
     }
 

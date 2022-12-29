@@ -1,6 +1,0 @@
-packageName: com.example.demo
-groupId: com.example
-description: IMDB API
-name: imdbapi
-database: postgresql
-
