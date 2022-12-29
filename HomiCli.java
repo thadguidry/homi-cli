@@ -7,6 +7,7 @@
 //DEPS org.apache.maven:maven-model:3.8.6
 //DEPS org.slf4j:slf4j-api:2.0.6
 //DEPS org.projectlombok:lombok:1.18.24
+//DEPS org.eclipse.jgit:org.eclipse.jgit:6.4.0.202211300538-r
 //SOURCES Recipe.java
 //SOURCES App.java
 //SOURCES GeneratorConfig.java
