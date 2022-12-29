@@ -5,6 +5,11 @@ app:
   description: Event Management API
   db: pg
   dbVersionManager : lb
+  environments:
+    - local
+    - dev
+    - stage
+    - prod
 
 
 

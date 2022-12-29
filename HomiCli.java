@@ -7,7 +7,8 @@
 //DEPS org.apache.maven:maven-model:3.8.6
 //DEPS org.slf4j:slf4j-api:2.0.6
 //DEPS org.projectlombok:lombok:1.18.24
-
+//SOURCES Recipe.java
+//SOURCES GeneratorConfig.java
 //SOURCES GenerateRest.java
 //SOURCES InitProject.java
 
