@@ -8,7 +8,7 @@ public class JdbcPropertyRule {
     public static String getUrl(String db){
         switch (db) {
             case "pg" :
-                return "jdbc:postgresql://${DB_IP}:${DB_PORT}/${DB_NAME}?currentSchema=${currentSchema}";
+                return "jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}?currentSchema=${DB_CURRENT_SCHEMA}";
             default:
                 return "";
         }
