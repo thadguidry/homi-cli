@@ -18,6 +18,7 @@
 //SOURCES UpdateApplicationProjectPomTask.java
 //SOURCES UpdateRootPomTask.java
 //SOURCES UpdateRepositoryProjectPomTask.java
+//SOURCES UpdateRepositoryProjectFolderTask.java
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;

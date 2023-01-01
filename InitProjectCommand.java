@@ -52,6 +52,10 @@ public class InitProjectCommand implements Callable<Integer> {
         UpdateRepositoryProjectPomTask updateRepositoryProjectPomTask = new UpdateRepositoryProjectPomTask();
         updateRepositoryProjectPomTask.execute(recipe);
 
+        //4.1 update repositry project folder
+        UpdateRepositoryProjectFolderTask updateRepositoryProjectFolderTask = new UpdateRepositoryProjectFolderTask();
+        updateRepositoryProjectFolderTask.execute(recipe);
+
         return 0;
     }
 
