@@ -6,12 +6,15 @@ public class UpdateRepositoryProjectFolderTask {
 
     public void execute(Recipe recipe) {
         try {
-            String appFolder = recipe.getApp().getArtifactId() + "/repository/src/main/java/" +
+            String javaFolder = recipe.getApp().getArtifactId() + "/repository/src/main/java/" +
                     recipe.getApp().getPackageName().replace(".", "/") + "/repository";
 
-            File repositoryFolderFile = new File(appFolder);
-            repositoryFolderFile.mkdirs();
+            new File(javaFolder).mkdirs();
 
+            String testFolder = recipe.getApp().getArtifactId() + "/repository/src/test/java/" +
+                    recipe.getApp().getPackageName().replace(".", "/") + "/repository";
+
+            new File(testFolder).mkdirs();
 
         }
         catch (Exception e) {

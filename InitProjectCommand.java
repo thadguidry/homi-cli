@@ -56,6 +56,14 @@ public class InitProjectCommand implements Callable<Integer> {
         UpdateRepositoryProjectFolderTask updateRepositoryProjectFolderTask = new UpdateRepositoryProjectFolderTask();
         updateRepositoryProjectFolderTask.execute(recipe);
 
+        //5. change domain project pom
+        UpdateDomainProjectPomTask updateDomainProjectPomTask = new UpdateDomainProjectPomTask();
+        updateDomainProjectPomTask.execute(recipe);
+
+        //5.1 update folders
+        UpdateDomainProjectFolderTask updateDomainProjectFolderTask = new UpdateDomainProjectFolderTask();
+        updateDomainProjectFolderTask.execute(recipe);
+
         return 0;
     }
 
