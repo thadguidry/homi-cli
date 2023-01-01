@@ -19,6 +19,7 @@
 //SOURCES UpdateRootPomTask.java
 //SOURCES UpdateRepositoryProjectPomTask.java
 //SOURCES UpdateRepositoryProjectFolderTask.java
+//SOURCES UpdateDomainProjectPomTask.java
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -26,7 +27,7 @@ import picocli.CommandLine.Command;
 
 import java.util.concurrent.Callable;
 
-@Command(name = "homi", mixinStandardHelpOptions = true, version = "HomiCli 0.1",
+@Command(name = "homi", mixinStandardHelpOptions = true, version = "HomiCli 0.1.1",
         description = "HomiCli made with jbang",
         subcommands = {GenerateRest.class, InitProjectCommand.class}
 )
