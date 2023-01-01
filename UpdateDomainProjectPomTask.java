@@ -1,4 +1,4 @@
-import lombok.extern.slf4j.Slf4j;
+
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
@@ -7,7 +7,6 @@ import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-@Slf4j
 public class UpdateDomainProjectPomTask {
 
     public void execute(Recipe recipe) {
