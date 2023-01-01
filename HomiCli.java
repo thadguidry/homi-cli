@@ -3,10 +3,7 @@
 //DEPS org.yaml:snakeyaml:1.33
 //DEPS com.konghq:unirest-java:3.14.1
 //DEPS com.konghq:unirest-objectmapper-jackson:3.14.1
-//DEPS net.lingala.zip4j:zip4j:2.11.2
 //DEPS org.apache.maven:maven-model:3.8.6
-//DEPS org.slf4j:slf4j-api:2.0.6
-//DEPS org.projectlombok:lombok:1.18.24
 //DEPS org.eclipse.jgit:org.eclipse.jgit:6.4.0.202211300538-r
 //DEPS org.freemarker:freemarker:2.3.31
 

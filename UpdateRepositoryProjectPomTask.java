@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 public class UpdateRepositoryProjectPomTask {
 
     public void execute(Recipe recipe) {
-        System.out.println("=== updating repository pom ===clea");
 
         try {
             MavenXpp3Reader applicationReader = new MavenXpp3Reader();
