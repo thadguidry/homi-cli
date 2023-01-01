@@ -13,7 +13,6 @@ public class UpdateRepositoryProjectPomTask {
 
         try {
             MavenXpp3Reader applicationReader = new MavenXpp3Reader();
-            System.out.println("Repo - " + recipe.getApp().getArtifactId() + "/repository/pom.xml");
             FileInputStream appFis = new FileInputStream(recipe.getApp().getArtifactId() + "/repository/pom.xml");
             Model repositoryModel = applicationReader.read(appFis);
             repositoryModel.setGroupId(recipe.getApp().getGroupId());

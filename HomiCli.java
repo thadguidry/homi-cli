@@ -8,13 +8,15 @@
 //DEPS org.slf4j:slf4j-api:2.0.6
 //DEPS org.projectlombok:lombok:1.18.24
 //DEPS org.eclipse.jgit:org.eclipse.jgit:6.4.0.202211300538-r
+//DEPS org.freemarker:freemarker:2.3.31
+
 //SOURCES Recipe.java
 //SOURCES App.java
 //SOURCES GeneratorConfig.java
 //SOURCES GenerateRest.java
 //SOURCES InitProjectCommand.java
 //SOURCES RenameProjectTask.java
-//SOURCES UpdateApplicationProjectFolderTask.java
+//SOURCES CreateApplicationProjectFolderTask.java
 //SOURCES UpdateApplicationProjectPomTask.java
 //SOURCES UpdateRootPomTask.java
 //SOURCES UpdateRepositoryProjectPomTask.java
@@ -23,6 +25,10 @@
 //SOURCES UpdateDomainProjectFolderTask.java
 //SOURCES CreateCustomProjectFolderTask.java
 //SOURCES UpdateCustomProjectPomTask.java
+//SOURCES GenerateMainClassTask.java
+
+//FILES sbmain.ftl
+//FILES sbmaintest.ftl
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
