@@ -76,6 +76,10 @@ public class InitProjectCommand implements Callable<Integer> {
         GenerateMainClassTask generateMainClassTask = new GenerateMainClassTask();
         generateMainClassTask.execute(recipe);
 
+        //8. Generate application properties
+        GenerateAppPropertiesTask generateAppPropertiesTask = new GenerateAppPropertiesTask();
+        generateAppPropertiesTask.execute(recipe);
+
         return 0;
     }
 

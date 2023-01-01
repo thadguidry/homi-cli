@@ -23,6 +23,8 @@
 //SOURCES CreateCustomProjectFolderTask.java
 //SOURCES UpdateCustomProjectPomTask.java
 //SOURCES GenerateMainClassTask.java
+//SOURCES GenerateAppPropertiesTask.java
+//SOURCES JdbcPropertyRule.java
 
 //FILES sbmain.ftl
 //FILES sbmaintest.ftl
