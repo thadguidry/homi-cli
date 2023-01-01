@@ -20,17 +20,13 @@ public class UpdateRepositoryProjectPomTask {
             Model repositoryModel = applicationReader.read(appFis);
             repositoryModel.setGroupId(recipe.getApp().getGroupId());
 
-
-
-            Dependency dependencyDomain= new Dependency();
-            dependencyDomain.setGroupId(recipe.getApp().getGroupId());
-            dependencyDomain.setArtifactId("domain");
-            dependencyDomain.setVersion("${project.version}");
-
-
             repositoryModel.getDependencies().removeIf(i -> i.getGroupId().equals("com.homihq")
                     && i.getArtifactId().equals("domain"));
 
+            Dependency dependencyDomain = new Dependency();
+            dependencyDomain.setGroupId(recipe.getApp().getGroupId());
+            dependencyDomain.setArtifactId("domain");
+            dependencyDomain.setVersion("${project.version}");
 
             repositoryModel.getDependencies().add(dependencyDomain);
 
@@ -40,7 +36,6 @@ public class UpdateRepositoryProjectPomTask {
             applicationWriter.write(appFos, repositoryModel);
         }
         catch (Exception e) {
-            e.printStackTrace();
             throw new RuntimeException("Failed to update application module pom.");
         }
     }

@@ -53,8 +53,8 @@ public class InitProjectCommand implements Callable<Integer> {
         updateRepositoryProjectPomTask.execute(recipe);
 
         //4.1 update repositry project folder
-        UpdateRepositoryProjectFolderTask updateRepositoryProjectFolderTask = new UpdateRepositoryProjectFolderTask();
-        updateRepositoryProjectFolderTask.execute(recipe);
+        CreateRepositoryProjectFolderTask createRepositoryProjectFolderTask = new CreateRepositoryProjectFolderTask();
+        createRepositoryProjectFolderTask.execute(recipe);
 
         //5. change domain project pom
         UpdateDomainProjectPomTask updateDomainProjectPomTask = new UpdateDomainProjectPomTask();
@@ -63,6 +63,14 @@ public class InitProjectCommand implements Callable<Integer> {
         //5.1 update folders
         UpdateDomainProjectFolderTask updateDomainProjectFolderTask = new UpdateDomainProjectFolderTask();
         updateDomainProjectFolderTask.execute(recipe);
+
+        //6 Change custom oroject pom
+        UpdateCustomProjectPomTask updateCustomProjectPomTask = new UpdateCustomProjectPomTask();
+        updateCustomProjectPomTask.execute(recipe);
+
+        //6.1 update folders
+        UpdateCustomProjectFolderTask updateCustomProjectFolderTask = new UpdateCustomProjectFolderTask();
+        updateCustomProjectFolderTask.execute(recipe);
 
         return 0;
     }

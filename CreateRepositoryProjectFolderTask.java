@@ -1,8 +1,6 @@
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-public class UpdateRepositoryProjectFolderTask {
+public class CreateRepositoryProjectFolderTask {
 
     public void execute(Recipe recipe) {
         try {

@@ -18,9 +18,11 @@
 //SOURCES UpdateApplicationProjectPomTask.java
 //SOURCES UpdateRootPomTask.java
 //SOURCES UpdateRepositoryProjectPomTask.java
-//SOURCES UpdateRepositoryProjectFolderTask.java
+//SOURCES CreateRepositoryProjectFolderTask.java
 //SOURCES UpdateDomainProjectPomTask.java
 //SOURCES UpdateDomainProjectFolderTask.java
+//SOURCES UpdateCustomProjectFolderTask.java
+//SOURCES UpdateCustomProjectPomTask.java
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
