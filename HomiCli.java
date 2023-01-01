@@ -12,8 +12,11 @@
 //SOURCES App.java
 //SOURCES GeneratorConfig.java
 //SOURCES GenerateRest.java
-//SOURCES InitProject.java
-
+//SOURCES InitProjectCommand.java
+//SOURCES RenameProjectTask.java
+//SOURCES UpdateApplicationProjectFolderTask.java
+//SOURCES UpdateApplicationProjectPomTask.java
+//SOURCES UpdateRootPomTask.java
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -23,7 +26,7 @@ import java.util.concurrent.Callable;
 
 @Command(name = "homi", mixinStandardHelpOptions = true, version = "HomiCli 0.1",
         description = "HomiCli made with jbang",
-        subcommands = {GenerateRest.class, InitProject.class}
+        subcommands = {GenerateRest.class, InitProjectCommand.class}
 )
 class HomiCli implements Callable<Integer> {
 
