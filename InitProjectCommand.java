@@ -69,8 +69,8 @@ public class InitProjectCommand implements Callable<Integer> {
         updateCustomProjectPomTask.execute(recipe);
 
         //6.1 update folders
-        UpdateCustomProjectFolderTask updateCustomProjectFolderTask = new UpdateCustomProjectFolderTask();
-        updateCustomProjectFolderTask.execute(recipe);
+        CreateCustomProjectFolderTask createCustomProjectFolderTask = new CreateCustomProjectFolderTask();
+        createCustomProjectFolderTask.execute(recipe);
 
         return 0;
     }

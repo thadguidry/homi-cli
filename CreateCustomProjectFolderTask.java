@@ -1,6 +1,6 @@
 import java.io.File;
 
-public class UpdateCustomProjectFolderTask {
+public class CreateCustomProjectFolderTask {
 
     public void execute(Recipe recipe) {
         try {

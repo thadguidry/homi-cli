@@ -1,4 +1,5 @@
 
+import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.model.io.xpp3.MavenXpp3Writer;
@@ -18,6 +19,15 @@ public class UpdateCustomProjectPomTask {
             Model repositoryModel = applicationReader.read(appFis);
             repositoryModel.setGroupId(recipe.getApp().getGroupId());
 
+            repositoryModel.getDependencies().removeIf(i -> i.getGroupId().equals("com.homihq")
+                    && i.getArtifactId().equals("repository"));
+
+            Dependency dependencyDomain = new Dependency();
+            dependencyDomain.setGroupId(recipe.getApp().getGroupId());
+            dependencyDomain.setArtifactId("repository");
+            dependencyDomain.setVersion("${project.version}");
+
+            repositoryModel.getDependencies().add(dependencyDomain);
 
             MavenXpp3Writer applicationWriter = new MavenXpp3Writer();
             FileOutputStream appFos = new FileOutputStream(recipe.getApp().getArtifactId() + "/custom/pom.xml");

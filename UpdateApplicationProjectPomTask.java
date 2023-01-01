@@ -28,6 +28,7 @@ public class UpdateApplicationProjectPomTask {
             dependencyRepository.setVersion("${project.version}");
 
 
+
             applicationModel.getDependencies().removeIf(i -> i.getGroupId().equals("com.homihq")
                     && i.getArtifactId().equals("custom"));
             applicationModel.getDependencies().removeIf(i -> i.getGroupId().equals("com.homihq")
@@ -35,6 +36,14 @@ public class UpdateApplicationProjectPomTask {
 
             applicationModel.getDependencies().add(dependencyCustom);
             applicationModel.getDependencies().add(dependencyRepository);
+
+            if("pg".equals(recipe.getApp().getDb())) {
+                Dependency db = new Dependency();
+                db.setGroupId("org.postgresql");
+                db.setArtifactId("postgresql");
+                db.setScope("runtime");
+                applicationModel.getDependencies().add(db);
+            }
 
             MavenXpp3Writer applicationWriter = new MavenXpp3Writer();
             FileOutputStream appFos = new FileOutputStream(recipe.getApp().getArtifactId() + "/application/pom.xml");

@@ -21,7 +21,7 @@
 //SOURCES CreateRepositoryProjectFolderTask.java
 //SOURCES UpdateDomainProjectPomTask.java
 //SOURCES UpdateDomainProjectFolderTask.java
-//SOURCES UpdateCustomProjectFolderTask.java
+//SOURCES CreateCustomProjectFolderTask.java
 //SOURCES UpdateCustomProjectPomTask.java
 
 import picocli.CommandLine;
