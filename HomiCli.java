@@ -1,11 +1,12 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //DEPS info.picocli:picocli:4.6.3
-//DEPS org.yaml:snakeyaml:1.33
 //DEPS com.konghq:unirest-java:3.14.1
 //DEPS com.konghq:unirest-objectmapper-jackson:3.14.1
 //DEPS org.apache.maven:maven-model:3.8.6
 //DEPS org.eclipse.jgit:org.eclipse.jgit:6.4.0.202211300538-r
 //DEPS org.freemarker:freemarker:2.3.31
+//DEPS com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.1
+//DEPS com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.14.1
 
 //SOURCES Recipe.java
 //SOURCES App.java
@@ -25,9 +26,14 @@
 //SOURCES GenerateMainClassTask.java
 //SOURCES GenerateAppPropertiesTask.java
 //SOURCES JdbcPropertyRule.java
+//SOURCES Generator.java
+//SOURCES Table.java
+//SOURCES PrimaryKey.java
 
 //FILES sbmain.ftl
 //FILES sbmaintest.ftl
+
+
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;

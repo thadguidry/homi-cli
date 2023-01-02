@@ -1,7 +1,11 @@
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import kong.unirest.json.JSONObject;
 import org.eclipse.jgit.api.Git;
-import org.yaml.snakeyaml.Yaml;
 import picocli.CommandLine;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,12 +22,18 @@ public class InitProjectCommand implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        System.out.println("Hello rest");
 
-        Yaml yaml = new Yaml();
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        mapper.findAndRegisterModules();
         Recipe recipe =
-                yaml.loadAs(new FileInputStream(new File(configFile)), Recipe.class);
+        mapper.readValue(new FileInputStream(new File(configFile)), Recipe.class);
 
+        XmlMapper xmlMapper = new XmlMapper();
+        String xml = xmlMapper.writeValueAsString(recipe);
+
+        System.out.println("xml -" + xml);
+
+        /*
 
         Git.cloneRepository()
                 .setURI("https://github.com/homihq/homi-starter-rest.git")
@@ -79,6 +89,9 @@ public class InitProjectCommand implements Callable<Integer> {
         //8. Generate application properties
         GenerateAppPropertiesTask generateAppPropertiesTask = new GenerateAppPropertiesTask();
         generateAppPropertiesTask.execute(recipe);
+
+
+         */
 
         return 0;
     }

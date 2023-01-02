@@ -11,7 +11,17 @@ app:
     - stage
     - prod
 
-
+generator:
+  schemaFilter:
+    - author
+  tableFilter:
+    - flyway_schema_history
+  table:
+    - name: article
+      schema: author
+      primaryKey:
+          - generator: identity
+            column: id
 
 
 
