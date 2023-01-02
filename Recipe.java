@@ -1,7 +1,7 @@
 
 public class Recipe {
     private App app;
-    private Generator generator;
+    private DbConfig dbConfig;
 
     public App getApp() {
         return app;
@@ -11,11 +11,11 @@ public class Recipe {
         this.app = app;
     }
 
-    public Generator getGenerator() {
-        return generator;
+    public DbConfig getDbConfig() {
+        return dbConfig;
     }
 
-    public void setGenerator(Generator generator) {
-        this.generator = generator;
+    public void setDbConfig(DbConfig dbConfig) {
+        this.dbConfig = dbConfig;
     }
 }

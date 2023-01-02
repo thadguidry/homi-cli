@@ -30,6 +30,9 @@
 //SOURCES Table.java
 //SOURCES PrimaryKey.java
 
+//SOURCES DbConfig.java
+//SOURCES SchemaSelection.java
+
 //FILES sbmain.ftl
 //FILES sbmaintest.ftl
 

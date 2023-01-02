@@ -2,7 +2,7 @@ public class Generator {
 
     private String [] schemaFilter;
     private String [] tableFilter;
-    private Table[] table;
+    private TableFilter[] tableFilter;
 
     public String[] getSchemaFilter() {
         return schemaFilter;
@@ -20,11 +20,11 @@ public class Generator {
         this.tableFilter = tableFilter;
     }
 
-    public Table[] getTable() {
-        return table;
+    public TableFilter[] getTable() {
+        return tableFilter;
     }
 
-    public void setTable(Table[] table) {
-        this.table = table;
+    public void setTable(TableFilter[] tableFilter) {
+        this.tableFilter = tableFilter;
     }
 }

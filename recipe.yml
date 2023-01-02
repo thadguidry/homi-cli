@@ -11,17 +11,21 @@ app:
     - stage
     - prod
 
-generator:
-  schemaFilter:
-    - author
+dbConfig:
+  schemaSelection:
+    - matchCatalog: pg
+      matchSchema: public
+      matchTable: author
+    - matchCatalog: pg
+      matchSchema: public
+      matchTable: article
+
   tableFilter:
-    - flyway_schema_history
-  table:
-    - name: article
-      schema: author
-      primaryKey:
-          - generator: identity
-            column: id
+    - match-catalog: "catalog_matching_rule"
+      match-schema: "schema_matching_rule"
+      match-name: "table_matching_rule"
+      exclude: "true|false"
+      package: "package.name"
 
 
 

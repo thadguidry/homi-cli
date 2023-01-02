@@ -1,9 +1,8 @@
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import kong.unirest.json.JSONObject;
-import org.eclipse.jgit.api.Git;
 import picocli.CommandLine;
 
 
@@ -29,9 +28,16 @@ public class InitProjectCommand implements Callable<Integer> {
         mapper.readValue(new FileInputStream(new File(configFile)), Recipe.class);
 
         XmlMapper xmlMapper = new XmlMapper();
+        xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+
         String xml = xmlMapper.writeValueAsString(recipe);
 
-        System.out.println("xml -" + xml);
+        //System.out.println("xml -" + xml);
+
+
+
+        System.out.println(xmlMapper.writeValueAsString(recipe.getDbConfig()));
 
         /*
 
