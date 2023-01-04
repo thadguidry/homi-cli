@@ -32,6 +32,7 @@
 //SOURCES DbConfig.java
 //SOURCES SchemaSelection.java
 //SOURCES TableFilter.java
+//SOURCES Table.java
 
 //FILES sbmain.ftl
 //FILES sbmaintest.ftl

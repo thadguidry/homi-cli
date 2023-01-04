@@ -24,6 +24,14 @@ dbConfig:
     - matchName: "flyway_schema_history"
       exclude: "true"
 
-
+  table:
+    - name: article
+      schema: author
+      primaryKey:
+        generator:
+          className: identity
+          param:
+            name: param_name
+            value: param_val
 
 
