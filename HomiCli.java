@@ -7,12 +7,14 @@
 //DEPS org.freemarker:freemarker:2.3.31
 //DEPS com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.1
 //DEPS com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.14.1
+//DEPS org.hibernate:hibernate-tools:5.6.14.Final
+//DEPS org.postgresql:postgresql:42.5.1
 
 //SOURCES Recipe.java
 //SOURCES App.java
-//SOURCES GeneratorConfig.java
-//SOURCES GenerateRest.java
+//SOURCES GenerateRestComponentsCommand.java
 //SOURCES InitProjectCommand.java
+//SOURCES RecipeLoader.java
 //SOURCES RenameProjectTask.java
 //SOURCES CreateApplicationProjectFolderTask.java
 //SOURCES UpdateApplicationProjectPomTask.java
@@ -47,7 +49,7 @@ import java.util.concurrent.Callable;
 
 @Command(name = "homi", mixinStandardHelpOptions = true, version = "HomiCli 0.1.1",
         description = "HomiCli made with jbang",
-        subcommands = {GenerateRest.class, InitProjectCommand.class}
+        subcommands = {GenerateRestComponentsCommand.class, InitProjectCommand.class}
 )
 class HomiCli implements Callable<Integer> {
 

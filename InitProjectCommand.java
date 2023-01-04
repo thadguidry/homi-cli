@@ -1,13 +1,8 @@
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import org.eclipse.jgit.api.Git;
 import picocli.CommandLine;
-
-
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.concurrent.Callable;
 
 
@@ -22,24 +17,11 @@ public class InitProjectCommand implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
-        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        mapper.findAndRegisterModules();
-        Recipe recipe =
-        mapper.readValue(new FileInputStream(new File(configFile)), Recipe.class);
-
+        RecipeLoader recipeLoader = new RecipeLoader();
+        Recipe recipe = recipeLoader.get(configFile);
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-
-        String xml = xmlMapper.writeValueAsString(recipe);
-
-        //System.out.println("xml -" + xml);
-
-
-
-        System.out.println(xmlMapper.writeValueAsString(recipe.getDbConfig()));
-
-        /*
 
         Git.cloneRepository()
                 .setURI("https://github.com/homihq/homi-starter-rest.git")
@@ -96,8 +78,6 @@ public class InitProjectCommand implements Callable<Integer> {
         GenerateAppPropertiesTask generateAppPropertiesTask = new GenerateAppPropertiesTask();
         generateAppPropertiesTask.execute(recipe);
 
-
-         */
 
         return 0;
     }
