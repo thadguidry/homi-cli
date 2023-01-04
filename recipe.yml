@@ -21,11 +21,8 @@ dbConfig:
       matchTable: article
 
   tableFilter:
-    - match-catalog: "catalog_matching_rule"
-      match-schema: "schema_matching_rule"
-      match-name: "table_matching_rule"
-      exclude: "true|false"
-      package: "package.name"
+    - matchName: "flyway_schema_history"
+      exclude: "true"
 
 
 

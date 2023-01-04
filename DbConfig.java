@@ -12,11 +12,25 @@ public class DbConfig {
     @JacksonXmlElementWrapper(useWrapping = false)
     private SchemaSelection [] schemaSelection;
 
+
+    @JacksonXmlProperty(isAttribute = false, localName = "table-filter")
+    @JacksonXmlElementWrapper(useWrapping = false)
+    private TableFilter [] tableFilter;
+
     public SchemaSelection[] getSchemaSelection() {
         return schemaSelection;
     }
 
     public void setSchemaSelection(SchemaSelection[] schemaSelection) {
         this.schemaSelection = schemaSelection;
+    }
+
+
+    public TableFilter[] getTableFilter() {
+        return tableFilter;
+    }
+
+    public void setTableFilter(TableFilter[] tableFilter) {
+        this.tableFilter = tableFilter;
     }
 }

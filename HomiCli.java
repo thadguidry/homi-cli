@@ -26,12 +26,12 @@
 //SOURCES GenerateMainClassTask.java
 //SOURCES GenerateAppPropertiesTask.java
 //SOURCES JdbcPropertyRule.java
-//SOURCES Generator.java
-//SOURCES Table.java
+
 //SOURCES PrimaryKey.java
 
 //SOURCES DbConfig.java
 //SOURCES SchemaSelection.java
+//SOURCES TableFilter.java
 
 //FILES sbmain.ftl
 //FILES sbmaintest.ftl
