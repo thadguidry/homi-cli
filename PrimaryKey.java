@@ -8,6 +8,10 @@ public class PrimaryKey {
     @JacksonXmlElementWrapper(useWrapping = false)
     private Generator generator;
 
+    @JacksonXmlProperty(isAttribute = false, localName = "key-column")
+    @JacksonXmlElementWrapper(useWrapping = false)
+    private KeyColumn [] keyColumn;
+
     public Generator getGenerator() {
         return generator;
     }
@@ -16,7 +20,56 @@ public class PrimaryKey {
         this.generator = generator;
     }
 
+    public KeyColumn[] getKeyColumn() {
+        return keyColumn;
+    }
 
+    public void setKeyColumn(KeyColumn[] keyColumn) {
+        this.keyColumn = keyColumn;
+    }
+
+    private static class KeyColumn{
+        @JacksonXmlProperty(isAttribute = true, localName = "name")
+        private String name;
+        @JacksonXmlProperty(isAttribute = true, localName = "jdbc-type")
+        private String jdbcType;
+        @JacksonXmlProperty(isAttribute = true, localName = "type")
+        private String type;
+        @JacksonXmlProperty(isAttribute = true, localName = "property")
+        private String property;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getJdbcType() {
+            return jdbcType;
+        }
+
+        public void setJdbcType(String jdbcType) {
+            this.jdbcType = jdbcType;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getProperty() {
+            return property;
+        }
+
+        public void setProperty(String property) {
+            this.property = property;
+        }
+    }
 
     private static class Generator{
 

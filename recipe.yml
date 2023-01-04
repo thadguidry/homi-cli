@@ -33,5 +33,6 @@ dbConfig:
           param:
             name: param_name
             value: param_val
-
+        keyColumn:
+          - name: id
 
