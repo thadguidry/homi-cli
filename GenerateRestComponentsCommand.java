@@ -4,6 +4,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import picocli.CommandLine;
 
+import java.io.ByteArrayInputStream;
 import java.util.concurrent.Callable;
 
 
@@ -23,6 +24,10 @@ public class GenerateRestComponentsCommand implements Callable<Integer> {
     @CommandLine.Option(names = { "--jdbcUrl" , "-j" } , description = "JDBC URL", required = true)
     private String jdbcUrl;
 
+    private final String HEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+            "<!DOCTYPE hibernate-reverse-engineering PUBLIC\n" +
+            "        \"-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN\"\n" +
+            "        \"http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd\" >";
 
     @Override
     public Integer call() throws Exception {
@@ -33,10 +38,15 @@ public class GenerateRestComponentsCommand implements Callable<Integer> {
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
-        String xml = xmlMapper.writeValueAsString(recipe.getDbConfig());
-        System.out.println(xml);
+        String xml = HEADER +
+                xmlMapper.writeValueAsString(recipe.getDbConfig());
+        System.out.println(
 
-        JpaGenerator jpaGenerator = new JpaGenerator();
+                xml);
+
+
+
+        JpaGenerator jpaGenerator = new JpaGenerator(recipe, new ByteArrayInputStream(xml.getBytes()));
         jpaGenerator.execute(user, password, jdbcUrl);
 
         return 0;

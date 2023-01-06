@@ -1,6 +1,4 @@
 
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.eclipse.jgit.api.Git;
 import picocli.CommandLine;
 import java.util.concurrent.Callable;
@@ -19,8 +17,7 @@ public class InitProjectCommand implements Callable<Integer> {
 
         RecipeLoader recipeLoader = new RecipeLoader();
         Recipe recipe = recipeLoader.get(configFile);
-        XmlMapper xmlMapper = new XmlMapper();
-        xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
 
 
         Git.cloneRepository()

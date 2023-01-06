@@ -10,6 +10,8 @@
 //DEPS org.hibernate:hibernate-tools:5.6.14.Final
 //DEPS org.postgresql:postgresql:42.5.1
 
+//DEPS https://github.com/homihq/spring-data-jpa-dev/tree/0.0.3-RC1
+
 //SOURCES Recipe.java
 //SOURCES App.java
 //SOURCES GenerateRestComponentsCommand.java
@@ -54,8 +56,6 @@
 //FILES pojo2/PojoToString.ftl=pojo2/PojoToString.ftl
 //FILES pojo2/PojoEqualsHashcode.ftl=pojo2/PojoEqualsHashcode.ftl
 //FILES pojo2/PojoExtraClassCode.ftl=pojo2/PojoExtraClassCode.ftl
-
-
 
 
 import picocli.CommandLine;

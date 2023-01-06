@@ -7,6 +7,7 @@ import org.hibernate.tool.api.metadata.MetadataDescriptor;
 import org.hibernate.tool.api.metadata.MetadataDescriptorFactory;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.Properties;
 
 
@@ -15,6 +16,17 @@ public abstract class AbstractJpaGenerator {
     // For reveng strategy
     /** The default package name to use when mappings for classes are created. */
     private String packageName;
+
+    private InputStream reverseEnggFile;
+
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+    }
+
+    public void setReverseEnggFile(InputStream reverseEnggFile) {
+        this.reverseEnggFile = reverseEnggFile;
+    }
 
     public void execute(String user, String password, String jdbcUrl) {
 
@@ -28,7 +40,7 @@ public abstract class AbstractJpaGenerator {
     private ReverseEngineeringStrategy setupReverseEngineeringStrategy() {
 
         OverrideRepository override = new OverrideRepository();
-        override.addFile(new File("/Users/dhrubo/git/spring-data-jpa-dev/src/main/resources/reveng.xml"));
+        override.addInputStream(reverseEnggFile);
         ReverseEngineeringStrategy strategy = override.getReverseEngineeringStrategy(new SimpleReverseEngineeringStrategy(new DefaultReverseEngineeringStrategy()));
 
 

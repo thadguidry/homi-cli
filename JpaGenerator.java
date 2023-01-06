@@ -3,6 +3,7 @@ import org.hibernate.mapping.PersistentClass;
 import org.hibernate.tool.api.metadata.MetadataDescriptor;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,20 +15,26 @@ import java.util.List;
 public class JpaGenerator extends AbstractJpaGenerator {
 
     /** The directory into which the JPA entities will be generated. */
-    private File outputDirectory = new File("generated-sources/");
+    private File outputDirectory;
 
+    private Recipe recipe;
 
-    /** A path used for looking up user-edited templates. */
-    private String templatePath = null;
+    public JpaGenerator(Recipe recipe, InputStream inputStream) {
+        this.recipe = recipe;
+        String domainFolder = recipe.getApp().getArtifactId() + "/domain/src/main/java" ;
+
+        this.outputDirectory = new File(domainFolder);
+        this.setPackageName(recipe.getApp().getPackageName()+".domain");
+
+        this.setReverseEnggFile(inputStream);
+    }
+
 
     protected void executeExporter(MetadataDescriptor metadataDescriptor) {
         LombokPojoExporter pojoExporter = new LombokPojoExporter();
         pojoExporter.setMetadataDescriptor(metadataDescriptor);
         pojoExporter.setOutputDirectory(outputDirectory);
-        if (templatePath != null) {
-            System.out.println("Setting template path to: " + templatePath);
-            pojoExporter.setTemplatePath(new String[]{templatePath});
-        }
+
         pojoExporter.getProperties().setProperty("ejb3", "true");
         pojoExporter.getProperties().setProperty("jdk5", "true");
 

@@ -12,7 +12,13 @@ app:
     - prod
 
 dbConfig:
-
+  schemaSelection:
+    - matchCatalog: pg
+      matchSchema: public
+      matchTable: author
+    - matchCatalog: pg
+      matchSchema: public
+      matchTable: article
 
   tableFilter:
     - matchName: "flyway_schema_history"
