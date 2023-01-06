@@ -7,6 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import ${(domainPackage)!}.${(entity)!};
 
-
+@RepositoryRestResource
 public interface ${(entity)!}Repository extends JpaRepository<${(entity)!}, ${(pk)!}>, JpaSpecificationExecutor<${(entity)!}> {
 }
