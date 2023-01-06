@@ -1,4 +1,5 @@
 
+import org.hibernate.boot.Metadata;
 import org.hibernate.mapping.PersistentClass;
 import org.hibernate.tool.api.metadata.MetadataDescriptor;
 
@@ -18,6 +19,12 @@ public class JpaGenerator extends AbstractJpaGenerator {
     private File outputDirectory;
 
     private Recipe recipe;
+
+    private Metadata metadata;
+
+    public Metadata getMetadata() {
+        return metadata;
+    }
 
     public JpaGenerator(Recipe recipe, InputStream inputStream) {
         this.recipe = recipe;
@@ -40,12 +47,15 @@ public class JpaGenerator extends AbstractJpaGenerator {
 
         pojoExporter.start();
 
+        this.metadata = pojoExporter.getMetadata();
+
         List<PersistentClass> pojos = new ArrayList<>(
         pojoExporter.getMetadata().getEntityBindings());
 
 
         for(PersistentClass pojo : pojos) {
             System.out.println("pojo - {}" +  pojo);
+
         }
 
     }

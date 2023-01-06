@@ -30,6 +30,7 @@
 //SOURCES GenerateMainClassTask.java
 //SOURCES GenerateAppPropertiesTask.java
 //SOURCES JdbcPropertyRule.java
+//SOURCES GenerateRestRepositoryClassTask.java
 
 //SOURCES PrimaryKey.java
 //SOURCES JpaGenerator.java
@@ -56,6 +57,8 @@
 //FILES pojo2/PojoToString.ftl=pojo2/PojoToString.ftl
 //FILES pojo2/PojoEqualsHashcode.ftl=pojo2/PojoEqualsHashcode.ftl
 //FILES pojo2/PojoExtraClassCode.ftl=pojo2/PojoExtraClassCode.ftl
+
+//FILES repo/RestRepository.ftl=repo/RestRepository.ftl
 
 
 import picocli.CommandLine;
