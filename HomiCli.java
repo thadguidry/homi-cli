@@ -30,6 +30,10 @@
 //SOURCES JdbcPropertyRule.java
 
 //SOURCES PrimaryKey.java
+//SOURCES JpaGenerator.java
+//SOURCES LombokPojoExporter.java
+//SOURCES AbstractJpaGenerator.java
+//SOURCES SimpleReverseEngineeringStrategy.java
 
 //SOURCES DbConfig.java
 //SOURCES SchemaSelection.java
@@ -38,6 +42,19 @@
 
 //FILES sbmain.ftl
 //FILES sbmaintest.ftl
+
+//FILES pojo2/Pojo2.ftl=pojo2/Pojo2.ftl
+//FILES pojo2/PojoTypeDeclaration.ftl=pojo2/PojoTypeDeclaration.ftl
+//FILES pojo2/Ejb3TypeDeclaration.ftl=pojo2/Ejb3TypeDeclaration.ftl
+//FILES pojo2/PojoFields.ftl=pojo2/PojoFields.ftl
+//FILES pojo2/PojoConstructors.ftl=pojo2/PojoConstructors.ftl
+//FILES pojo2/PojoPropertyAccessors.ftl=pojo2/PojoPropertyAccessors.ftl
+//FILES pojo2/GetPropertyAnnotation.ftl=pojo2/GetPropertyAnnotation.ftl
+//FILES pojo2/Ejb3PropertyGetAnnotation.ftl=pojo2/Ejb3PropertyGetAnnotation.ftl
+//FILES pojo2/PojoToString.ftl=pojo2/PojoToString.ftl
+//FILES pojo2/PojoEqualsHashcode.ftl=pojo2/PojoEqualsHashcode.ftl
+//FILES pojo2/PojoExtraClassCode.ftl=pojo2/PojoExtraClassCode.ftl
+
 
 
 
