@@ -10,16 +10,13 @@
 //DEPS org.hibernate:hibernate-tools:5.6.14.Final
 //DEPS org.postgresql:postgresql:42.5.1
 
-//DEPS https://github.com/homihq/spring-data-jpa-dev/tree/0.0.3-RC1
-
 //SOURCES Recipe.java
 //SOURCES App.java
 //SOURCES GenerateRestComponentsCommand.java
 //SOURCES InitProjectCommand.java
-//SOURCES RecipeLoader.java
+//SOURCES ConfigLoader.java
 //SOURCES RenameProjectTask.java
 //SOURCES CreateApplicationProjectFolderTask.java
-//SOURCES UpdateApplicationProjectPomTask.java
 //SOURCES UpdateRootPomTask.java
 //SOURCES UpdateRepositoryProjectPomTask.java
 //SOURCES CreateRepositoryProjectFolderTask.java
@@ -45,6 +42,7 @@
 
 //FILES sbmain.ftl
 //FILES sbmaintest.ftl
+//FILES db.yml
 
 //FILES pojo2/Pojo2.ftl=pojo2/Pojo2.ftl
 //FILES pojo2/PojoTypeDeclaration.ftl=pojo2/PojoTypeDeclaration.ftl

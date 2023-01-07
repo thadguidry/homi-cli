@@ -14,7 +14,7 @@ import java.util.concurrent.Callable;
 public class GenerateRestComponentsCommand implements Callable<Integer> {
 
     @CommandLine.Option(names = { "--recipe" , "-r" } , description = "Recipe file", required = true)
-    private String configFile;
+    private String recipeFile;
 
     @CommandLine.Option(names = { "--user" , "-u" } , description = "Database Username", required = true)
     private String user;
@@ -33,8 +33,8 @@ public class GenerateRestComponentsCommand implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
 
-        RecipeLoader recipeLoader = new RecipeLoader();
-        Recipe recipe = recipeLoader.get(configFile);
+        ConfigLoader configLoader = new ConfigLoader(recipeFile);
+        Recipe recipe = configLoader.getRecipe();
 
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
