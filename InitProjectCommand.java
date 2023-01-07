@@ -37,29 +37,6 @@ public class InitProjectCommand implements Callable<Integer> {
         CreateProjectFolderTask createProjectFolderTask = new CreateProjectFolderTask();
         createProjectFolderTask.execute(recipe);
 
-        //4. change repository project pom
-        //UpdateRepositoryProjectPomTask updateRepositoryProjectPomTask = new UpdateRepositoryProjectPomTask();
-        //updateRepositoryProjectPomTask.execute(recipe);
-
-        //4.1 update repositry project folder
-        //CreateRepositoryProjectFolderTask createRepositoryProjectFolderTask = new CreateRepositoryProjectFolderTask();
-        //createRepositoryProjectFolderTask.execute(recipe);
-
-        //5. change domain project pom
-        //UpdateDomainProjectPomTask updateDomainProjectPomTask = new UpdateDomainProjectPomTask();
-        //updateDomainProjectPomTask.execute(recipe);
-
-        //5.1 update folders
-        //UpdateDomainProjectFolderTask updateDomainProjectFolderTask = new UpdateDomainProjectFolderTask();
-        //updateDomainProjectFolderTask.execute(recipe);
-
-        //6 Change custom oroject pom
-        //UpdateCustomProjectPomTask updateCustomProjectPomTask = new UpdateCustomProjectPomTask();
-        //updateCustomProjectPomTask.execute(recipe);
-
-        //6.1 update folders
-        //CreateCustomProjectFolderTask createCustomProjectFolderTask = new CreateCustomProjectFolderTask();
-        //createCustomProjectFolderTask.execute(recipe);
 
         //7. Generate class
         GenerateMainClassTask generateMainClassTask = new GenerateMainClassTask();

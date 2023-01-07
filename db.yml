@@ -16,3 +16,4 @@
 - key: postgresql
   groupId: org.postgresql
   artifactId: postgresql
+  url: 'jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}?currentSchema=${DB_CURRENT_SCHEMA}'

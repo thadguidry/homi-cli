@@ -18,10 +18,6 @@
 //SOURCES RenameProjectTask.java
 //SOURCES CreateProjectFolderTask.java
 //SOURCES UpdateRootPomTask.java
-//SOURCES CreateRepositoryProjectFolderTask.java
-//SOURCES UpdateDomainProjectPomTask.java
-//SOURCES UpdateDomainProjectFolderTask.java
-//SOURCES CreateCustomProjectFolderTask.java
 //SOURCES GenerateMainClassTask.java
 //SOURCES GenerateAppPropertiesTask.java
 //SOURCES JdbcPropertyRule.java
