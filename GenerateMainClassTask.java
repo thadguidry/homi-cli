@@ -16,8 +16,6 @@ public class GenerateMainClassTask {
                     recipe.getApp().getPackageName().replace(".", "/");
             String javaClassName = appFolder + "/HomiRestApiApplication.java";
             Configuration cfg = new Configuration(Configuration.VERSION_2_3_29);
-            //GenerateMainClassTask.class.getClassLoader().getResourceAsStream("templates/sbmain.ftl");
-            //cfg.setDirectoryForTemplateLoading(new File("META-INF/resources/"));
             cfg.setTemplateLoader(new ClassTemplateLoader(getClass(), "/"));
 
 

@@ -43,8 +43,8 @@ public class InitProjectCommand implements Callable<Integer> {
         generateMainClassTask.execute(recipe);
 
         //8. Generate application properties
-        //GenerateAppPropertiesTask generateAppPropertiesTask = new GenerateAppPropertiesTask();
-        //generateAppPropertiesTask.execute(recipe);
+        GenerateAppPropertiesTask generateAppPropertiesTask = new GenerateAppPropertiesTask(configLoader.getDbMap());
+        generateAppPropertiesTask.execute(recipe);
 
 
         return 0;

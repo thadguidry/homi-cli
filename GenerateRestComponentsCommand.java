@@ -45,14 +45,13 @@ public class GenerateRestComponentsCommand implements Callable<Integer> {
 
                 xml);
 
-
         JpaGenerator jpaGenerator = new JpaGenerator(recipe, new ByteArrayInputStream(xml.getBytes()));
         jpaGenerator.execute(user, password, jdbcUrl);
         Metadata metadata =
         jpaGenerator.getMetadata();
 
-        GenerateRestRepositoryClassTask generateRestRepositoryClassTask = new GenerateRestRepositoryClassTask(metadata);
-        generateRestRepositoryClassTask.execute(recipe);
+        //GenerateRestRepositoryClassTask generateRestRepositoryClassTask = new GenerateRestRepositoryClassTask(metadata);
+        //generateRestRepositoryClassTask.execute(recipe);
 
         return 0;
     }

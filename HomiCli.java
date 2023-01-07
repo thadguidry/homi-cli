@@ -20,7 +20,6 @@
 //SOURCES UpdateRootPomTask.java
 //SOURCES GenerateMainClassTask.java
 //SOURCES GenerateAppPropertiesTask.java
-//SOURCES JdbcPropertyRule.java
 //SOURCES GenerateRestRepositoryClassTask.java
 
 //SOURCES PrimaryKey.java

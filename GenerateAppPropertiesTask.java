@@ -1,17 +1,35 @@
+import org.apache.maven.model.Dependency;
+
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.util.Objects;
-import java.util.Properties;
+import java.util.*;
 
 public class GenerateAppPropertiesTask {
 
+    private List<Map<String, String>> dbMap;
+    public GenerateAppPropertiesTask(List<Map<String, String>> dbMap) {
+        this.dbMap = dbMap;
+    }
+
     public void execute(Recipe recipe) {
         try {
-            String propertiesFolder = recipe.getApp().getArtifactId() + "/application/src/main/resources/" ;
+            String propertiesFolder = recipe.getApp().getArtifactId() + "/src/main/resources/" ;
+
+            Optional<Map<String,String>> db =
+                    dbMap.stream().filter(i -> i.get("key").equals(recipe.getApp().getDb())).findFirst();
+
+            String jdbcUrl = "";
+
+            if(db.isPresent()) {
+                jdbcUrl = db.get().get("jdbcUrl");
+            }
+            else{
+                System.out.println("!!! No matching DB found");
+            }
 
             //generate base
             Properties properties = new Properties();
-            properties.put("spring.datasource.url", JdbcPropertyRule.getUrl(recipe.getApp().getDb()));
+            properties.put("spring.datasource.url", jdbcUrl);
             properties.put("spring.datasource.username", "${DB_USERNAME}");
             properties.put("spring.datasource.password", "${DB_PASSWORD}");
 
