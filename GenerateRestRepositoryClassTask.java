@@ -35,7 +35,7 @@ public class GenerateRestRepositoryClassTask {
                 data.put("domainPackage", recipe.getApp().getPackageName() + ".domain");
                 data.put("entity", pojo.getJpaEntityName());
                 data.put("pkg", recipe.getApp().getPackageName() + ".repository");
-                data.put("pk", pojo.getClassName());
+                data.put("pk", pojo.getIdentifier().getType().getName());
 
                 Template template = cfg.getTemplate("RestRepository.ftl");
                 Writer fileWriter = new FileWriter(new File(appFolder + "/" + pojo.getJpaEntityName() +"Repository.java"));
