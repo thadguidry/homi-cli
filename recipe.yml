@@ -12,7 +12,8 @@ app:
     - prod
 
 dbConfig:
-
+  schemaSelection:
+    - matchSchema: author
 
   tableFilter:
     - matchName: "flyway_schema_history"

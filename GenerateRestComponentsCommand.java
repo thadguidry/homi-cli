@@ -2,6 +2,7 @@
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
+import org.hibernate.boot.Metadata;
 import picocli.CommandLine;
 
 import java.io.ByteArrayInputStream;
@@ -45,9 +46,13 @@ public class GenerateRestComponentsCommand implements Callable<Integer> {
                 xml);
 
 
-
         JpaGenerator jpaGenerator = new JpaGenerator(recipe, new ByteArrayInputStream(xml.getBytes()));
         jpaGenerator.execute(user, password, jdbcUrl);
+        Metadata metadata =
+        jpaGenerator.getMetadata();
+
+        GenerateRestRepositoryClassTask generateRestRepositoryClassTask = new GenerateRestRepositoryClassTask(metadata);
+        generateRestRepositoryClassTask.execute(recipe);
 
         return 0;
     }
