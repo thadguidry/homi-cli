@@ -33,13 +33,9 @@ public class InitProjectCommand implements Callable<Integer> {
         updateRootPomTask.execute(recipe);
 
 
-        //3. change application project pom
-        //UpdateApplicationProjectPomTask updateApplicationProjectPomTask = new UpdateApplicationProjectPomTask();
-        //updateApplicationProjectPomTask.execute(recipe);
-
-        //3.2 - create main folder for application
-        //CreateApplicationProjectFolderTask createApplicationProjectFolderTask = new CreateApplicationProjectFolderTask();
-        //createApplicationProjectFolderTask.execute(recipe);
+        //3 - create project root folders
+        CreateProjectFolderTask createProjectFolderTask = new CreateProjectFolderTask();
+        createProjectFolderTask.execute(recipe);
 
         //4. change repository project pom
         //UpdateRepositoryProjectPomTask updateRepositoryProjectPomTask = new UpdateRepositoryProjectPomTask();
@@ -66,8 +62,8 @@ public class InitProjectCommand implements Callable<Integer> {
         //createCustomProjectFolderTask.execute(recipe);
 
         //7. Generate class
-        //GenerateMainClassTask generateMainClassTask = new GenerateMainClassTask();
-        //generateMainClassTask.execute(recipe);
+        GenerateMainClassTask generateMainClassTask = new GenerateMainClassTask();
+        generateMainClassTask.execute(recipe);
 
         //8. Generate application properties
         //GenerateAppPropertiesTask generateAppPropertiesTask = new GenerateAppPropertiesTask();
