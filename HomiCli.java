@@ -32,6 +32,7 @@
 //SOURCES SchemaSelection.java
 //SOURCES TableFilter.java
 //SOURCES Table.java
+//SOURCES DtoItem.java
 
 //FILES sbmain.ftl
 //FILES sbmaintest.ftl
@@ -51,7 +52,8 @@
 
 //FILES repo/RestRepository.ftl=repo/RestRepository.ftl
 //FILES repo/Service.ftl=repo/Service.ftl
-
+//FILES repo/Dto.ftl=repo/Dto.ftl
+//FILES repo/error/nodatafound.ftl=repo/error/nodatafound.ftl
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;

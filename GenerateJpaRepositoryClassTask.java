@@ -3,14 +3,12 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.hibernate.boot.Metadata;
 import org.hibernate.mapping.PersistentClass;
+import org.hibernate.mapping.Property;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GenerateJpaRepositoryClassTask {
     private final Metadata metadata;
@@ -33,12 +31,20 @@ public class GenerateJpaRepositoryClassTask {
 
             new File(serviceFolder).mkdirs();
 
+            String dtoFolder = recipe.getApp().getArtifactId() + "/src/main/java/" +
+                    recipe.getApp().getPackageName().replace(".", "/") + "/dto";
+
+            new File(dtoFolder).mkdirs();
+
             List<PersistentClass> pojos = new ArrayList<>(
                     metadata.getEntityBindings());
             Map<String, Object> data = new HashMap<String, Object>();
+            data.put("exceptionPackage", recipe.getApp().getPackageName() + ".exception");
+
             for(PersistentClass pojo : pojos) {
                 data.put("servicePackage", recipe.getApp().getPackageName() + ".service");
                 data.put("domainPackage", recipe.getApp().getPackageName() + ".domain");
+                data.put("dtoPackage", recipe.getApp().getPackageName() + ".dto");
                 data.put("entity", pojo.getJpaEntityName());
                 data.put("pkg", recipe.getApp().getPackageName() + ".repository");
                 data.put("keyJavaType", pojo.getIdentifier().getType().getReturnedClass().getSimpleName());
@@ -53,9 +59,22 @@ public class GenerateJpaRepositoryClassTask {
                 Writer serviceFileWriter = new FileWriter(new File(serviceFolder + "/" + pojo.getJpaEntityName() +"Service.java"));
                 serviceTemplate.process(data, serviceFileWriter);
                 serviceFileWriter.close();
+
+
+                writeDto(cfg, pojo, dtoFolder, data);
             }
 
 
+
+            String exceptionFolder = recipe.getApp().getArtifactId() + "/src/main/java/" +
+                    recipe.getApp().getPackageName().replace(".", "/") + "/exception";
+
+            new File(exceptionFolder).mkdirs();
+
+            Template exceptionTemplate = cfg.getTemplate("/error/nodatafound.ftl");
+            Writer exceptionFileWriter = new FileWriter(new File(exceptionFolder + "/" + "NoDataFoundProblem.java"));
+            exceptionTemplate.process(data, exceptionFileWriter);
+            exceptionFileWriter.close();
 
         }
         catch(Exception e) {
@@ -63,4 +82,35 @@ public class GenerateJpaRepositoryClassTask {
             throw new RuntimeException("Unable to load templates or write output.");
         }
     }
+
+    private void writeDto(Configuration cfg, PersistentClass pojo, String dtoFolder, Map<String, Object> data) throws Exception{
+        Iterator it =
+        pojo.getPropertyIterator();
+
+        System.out.println("pojo - " + pojo);
+
+        List<DtoItem> items = new ArrayList<>();
+
+        //TODO handle composite
+
+
+        items.add(new DtoItem(pojo.getIdentifierProperty().getType().getReturnedClass().getSimpleName(), pojo.getIdentifierProperty().getName()));
+
+        while(it.hasNext()) {
+            Property property = (Property) it.next();
+            System.out.println("name -" + property.getName());
+
+            if(!property.getType().isAssociationType())
+            items.add(new DtoItem(property.getType().getReturnedClass().getSimpleName(), property.getName()));
+        }
+
+        data.put("items", items);
+
+        Template serviceTemplate = cfg.getTemplate("Dto.ftl");
+        Writer serviceFileWriter = new FileWriter(new File(dtoFolder + "/" + pojo.getJpaEntityName() +"Dto.java"));
+        serviceTemplate.process(data, serviceFileWriter);
+        serviceFileWriter.close();
+    }
+
+
 }
