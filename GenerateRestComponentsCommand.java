@@ -50,8 +50,8 @@ public class GenerateRestComponentsCommand implements Callable<Integer> {
         Metadata metadata =
         jpaGenerator.getMetadata();
 
-        //GenerateRestRepositoryClassTask generateRestRepositoryClassTask = new GenerateRestRepositoryClassTask(metadata);
-        //generateRestRepositoryClassTask.execute(recipe);
+        GenerateJpaRepositoryClassTask generateRestRepositoryClassTask = new GenerateJpaRepositoryClassTask(metadata);
+        generateRestRepositoryClassTask.execute(recipe);
 
         return 0;
     }

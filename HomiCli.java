@@ -20,7 +20,7 @@
 //SOURCES UpdateRootPomTask.java
 //SOURCES GenerateMainClassTask.java
 //SOURCES GenerateAppPropertiesTask.java
-//SOURCES GenerateRestRepositoryClassTask.java
+//SOURCES GenerateJpaRepositoryClassTask.java
 
 //SOURCES PrimaryKey.java
 //SOURCES JpaGenerator.java
