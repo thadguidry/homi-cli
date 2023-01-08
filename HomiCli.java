@@ -50,6 +50,7 @@
 //FILES pojo2/PojoExtraClassCode.ftl=pojo2/PojoExtraClassCode.ftl
 
 //FILES repo/RestRepository.ftl=repo/RestRepository.ftl
+//FILES repo/Service.ftl=repo/Service.ftl
 
 
 import picocli.CommandLine;

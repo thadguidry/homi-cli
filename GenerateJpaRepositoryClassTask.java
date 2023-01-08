@@ -28,16 +28,16 @@ public class GenerateJpaRepositoryClassTask {
 
             new File(appFolder).mkdirs();
 
+            String serviceFolder = recipe.getApp().getArtifactId() + "/src/main/java/" +
+                    recipe.getApp().getPackageName().replace(".", "/") + "/service";
 
+            new File(serviceFolder).mkdirs();
 
             List<PersistentClass> pojos = new ArrayList<>(
                     metadata.getEntityBindings());
             Map<String, Object> data = new HashMap<String, Object>();
             for(PersistentClass pojo : pojos) {
-                System.out.println("pojo - {}" +  pojo);
-                System.out.println("IDENTIFIER - {}" +  pojo.getIdentifier().getType().getReturnedClass().getSimpleName());
-                System.out.println("IDENTIFIER - {}" +  pojo.getIdentifierProperty());
-
+                data.put("servicePackage", recipe.getApp().getPackageName() + ".service");
                 data.put("domainPackage", recipe.getApp().getPackageName() + ".domain");
                 data.put("entity", pojo.getJpaEntityName());
                 data.put("pkg", recipe.getApp().getPackageName() + ".repository");
@@ -47,6 +47,12 @@ public class GenerateJpaRepositoryClassTask {
                 Writer fileWriter = new FileWriter(new File(appFolder + "/" + pojo.getJpaEntityName() +"Repository.java"));
                 template.process(data, fileWriter);
                 fileWriter.close();
+
+
+                Template serviceTemplate = cfg.getTemplate("Service.ftl");
+                Writer serviceFileWriter = new FileWriter(new File(serviceFolder + "/" + pojo.getJpaEntityName() +"Service.java"));
+                serviceTemplate.process(data, serviceFileWriter);
+                serviceFileWriter.close();
             }
 
 
