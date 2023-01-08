@@ -49,6 +49,20 @@ public class ${(entity)!}Service  {
         return toDto(${entity?uncap_first}Repository.save(${entity?uncap_first}), new ${(entity)!}Dto());
     }
 
+    @Transactional
+    public void update(final ${(keyJavaType)!} id, final ${(entity)!}Dto ${entity?uncap_first}Dto) {
+        final ${(entity)!} ${entity?uncap_first} = ${entity?uncap_first}Repository.findById(id)
+        .orElseThrow(() -> new NoDataFoundProblem());
+        toEntity( ${entity?uncap_first}Dto,  ${entity?uncap_first});
+        ${entity?uncap_first}Repository.save(${entity?uncap_first});
+    }
+
+    @Transactional
+    public void delete(final ${(keyJavaType)!} id) {
+        ${entity?uncap_first}Repository.deleteById(id);
+    }
+
+
     private ${(entity)!}Dto toDto(final ${(entity)!} ${entity?uncap_first} , final ${(entity)!}Dto ${entity?uncap_first}Dto) {
         <#list items as item>
         ${entity?uncap_first}Dto.set${(item.name?cap_first)!}(${entity?uncap_first}.get${(item.name?cap_first)!}());
