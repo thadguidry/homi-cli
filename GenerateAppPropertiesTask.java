@@ -43,6 +43,7 @@ public class GenerateAppPropertiesTask {
             }
         }
         catch(Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("Unable to load templates or write output.");
         }
     }

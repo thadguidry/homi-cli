@@ -3,8 +3,8 @@ app:
   groupId: com.homihq.event
   artifactId: event-management-api
   description: Event Management API
-  db: postgresql
-  dbVersionManager : lb
+  db: mysql
+  dbVersionManager : flyway
   environments:
     - local
     - dev
