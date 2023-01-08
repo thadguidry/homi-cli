@@ -11,9 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ${(exceptionPackage)!}.NoDataFoundProblem;
 
 import  ${(dtoPackage)!}.${(entity)!}Dto;
-import static ${(dtoPackage)!}.${(entity)!}Dto.toDto;
-import static ${(dtoPackage)!}.${(entity)!}Dto.toEntity;
-
 import ${(pkg)!}.${(entity)!}Repository;
 import ${(domainPackage)!}.${(entity)!};
 
@@ -27,22 +24,43 @@ public class ${(entity)!}Service  {
     @Transactional(readOnly = true)
     public ${(entity)!}Dto findById(${(keyJavaType)!} id) {
         return ${entity?uncap_first}Repository.findById(id)
-                .map(${entity?uncap_first} -> toDto(${entity?uncap_first}))
+                .map(${entity?uncap_first} -> toDto(${entity?uncap_first} , new ${(entity)!}Dto()))
                 .orElseThrow(() -> new NoDataFoundProblem());
     }
 
     @Transactional(readOnly = true)
     public Page<${(entity)!}Dto> search(Specification<${(entity)!}> spec, Pageable page) {
         return ${entity?uncap_first}Repository.findAll(spec, page).map(
-            ${entity?uncap_first} -> toDto(${entity?uncap_first})
+            ${entity?uncap_first} -> toDto(${entity?uncap_first} , new ${(entity)!}Dto())
         );
     }
 
     @Transactional(readOnly = true)
     public Slice<${(entity)!}Dto> searchBySlice(Specification<${(entity)!}> spec, Pageable page) {
         return ${entity?uncap_first}Repository.findAll(spec, page).map(
-            ${entity?uncap_first} -> toDto(${entity?uncap_first})
+            ${entity?uncap_first} -> toDto(${entity?uncap_first}, new ${(entity)!}Dto())
         );
+    }
+
+    @Transactional
+    public ${(entity)!}Dto save(final ${(entity)!}Dto ${entity?uncap_first}Dto) {
+        final ${(entity)!} ${entity?uncap_first} = new ${(entity)!}();
+        toEntity(${entity?uncap_first}Dto, ${entity?uncap_first});
+        return toDto(${entity?uncap_first}Repository.save(${entity?uncap_first}), new ${(entity)!}Dto());
+    }
+
+    private ${(entity)!}Dto toDto(final ${(entity)!} ${entity?uncap_first} , final ${(entity)!}Dto ${entity?uncap_first}Dto) {
+        <#list items as item>
+        ${entity?uncap_first}Dto.set${(item.name?cap_first)!}(${entity?uncap_first}.get${(item.name?cap_first)!}());
+        </#list>
+        return ${entity?uncap_first}Dto;
+    }
+
+    private ${(entity)!} toEntity(final ${(entity)!}Dto ${entity?uncap_first}Dto, final ${(entity)!} ${entity?uncap_first}){
+        <#list items as item>
+        ${entity?uncap_first}.set${(item.name?cap_first)!}(${entity?uncap_first}Dto.get${(item.name?cap_first)!}());
+        </#list>
+        return ${entity?uncap_first};
     }
 
 }

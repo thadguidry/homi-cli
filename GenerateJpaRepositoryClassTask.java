@@ -54,6 +54,7 @@ public class GenerateJpaRepositoryClassTask {
                 template.process(data, fileWriter);
                 fileWriter.close();
 
+                writeDto(cfg, pojo, dtoFolder, data);
 
                 Template serviceTemplate = cfg.getTemplate("Service.ftl");
                 Writer serviceFileWriter = new FileWriter(new File(serviceFolder + "/" + pojo.getJpaEntityName() +"Service.java"));
@@ -61,7 +62,7 @@ public class GenerateJpaRepositoryClassTask {
                 serviceFileWriter.close();
 
 
-                writeDto(cfg, pojo, dtoFolder, data);
+
             }
 
 
@@ -87,8 +88,6 @@ public class GenerateJpaRepositoryClassTask {
         Iterator it =
         pojo.getPropertyIterator();
 
-        System.out.println("pojo - " + pojo);
-
         List<DtoItem> items = new ArrayList<>();
 
         //TODO handle composite
@@ -98,7 +97,6 @@ public class GenerateJpaRepositoryClassTask {
 
         while(it.hasNext()) {
             Property property = (Property) it.next();
-            System.out.println("name -" + property.getName());
 
             if(!property.getType().isAssociationType())
             items.add(new DtoItem(property.getType().getReturnedClass().getSimpleName(), property.getName()));
