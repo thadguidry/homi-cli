@@ -12,12 +12,10 @@ public class GenerateMainClassTask {
 
     public void execute(Recipe recipe) {
         try {
-            String appFolder = recipe.getApp().getArtifactId() + "/application/src/main/java/" +
+            String appFolder = recipe.getApp().getArtifactId() + "/src/main/java/" +
                     recipe.getApp().getPackageName().replace(".", "/");
             String javaClassName = appFolder + "/HomiRestApiApplication.java";
             Configuration cfg = new Configuration(Configuration.VERSION_2_3_29);
-            //GenerateMainClassTask.class.getClassLoader().getResourceAsStream("templates/sbmain.ftl");
-            //cfg.setDirectoryForTemplateLoading(new File("META-INF/resources/"));
             cfg.setTemplateLoader(new ClassTemplateLoader(getClass(), "/"));
 
 
@@ -28,7 +26,7 @@ public class GenerateMainClassTask {
             template.process(data, fileWriter);
             fileWriter.close();
 
-            String testFolder = recipe.getApp().getArtifactId() + "/application/src/test/java/" +
+            String testFolder = recipe.getApp().getArtifactId() + "/src/test/java/" +
                     recipe.getApp().getPackageName().replace(".", "/");
             String testClassName = testFolder + "/HomiRestApiApplicationTest.java";
 

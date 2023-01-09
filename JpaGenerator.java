@@ -28,7 +28,8 @@ public class JpaGenerator extends AbstractJpaGenerator {
 
     public JpaGenerator(Recipe recipe, InputStream inputStream) {
         this.recipe = recipe;
-        String domainFolder = recipe.getApp().getArtifactId() + "/domain/src/main/java" ;
+        String domainFolder = recipe.getApp().getArtifactId() + "/src/main/java"
+                ;
 
         this.outputDirectory = new File(domainFolder);
         this.setPackageName(recipe.getApp().getPackageName()+".domain");

@@ -3,8 +3,8 @@ app:
   groupId: com.homihq.event
   artifactId: event-management-api
   description: Event Management API
-  db: pg
-  dbVersionManager : lb
+  db: postgresql
+  dbVersionManager:
   environments:
     - local
     - dev
