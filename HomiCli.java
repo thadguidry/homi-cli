@@ -54,6 +54,8 @@
 //FILES repo/Service.ftl=repo/Service.ftl
 //FILES repo/Dto.ftl=repo/Dto.ftl
 //FILES repo/error/nodatafound.ftl=repo/error/nodatafound.ftl
+//FILES repo/Controller.ftl=repo/Controller.ftl
+
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
