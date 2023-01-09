@@ -38,7 +38,7 @@ public class GenerateMainClassTask {
         }
         catch(Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Unable to load templates or write output.");
+            throw new RuntimeException("Unable to load Freemarker templates or write output.");
         }
     }
 }
