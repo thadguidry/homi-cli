@@ -36,10 +36,16 @@ public class GenerateJpaRepositoryClassTask {
 
             new File(dtoFolder).mkdirs();
 
+            String controllerFolder = recipe.getApp().getArtifactId() + "/src/main/java/" +
+                    recipe.getApp().getPackageName().replace(".", "/") + "/controller";
+
+            new File(controllerFolder).mkdirs();
+
             List<PersistentClass> pojos = new ArrayList<>(
                     metadata.getEntityBindings());
             Map<String, Object> data = new HashMap<String, Object>();
             data.put("exceptionPackage", recipe.getApp().getPackageName() + ".exception");
+            data.put("controllerPackage", recipe.getApp().getPackageName() + ".controller");
 
             for(PersistentClass pojo : pojos) {
                 data.put("servicePackage", recipe.getApp().getPackageName() + ".service");
@@ -60,6 +66,12 @@ public class GenerateJpaRepositoryClassTask {
                 Writer serviceFileWriter = new FileWriter(new File(serviceFolder + "/" + pojo.getJpaEntityName() +"Service.java"));
                 serviceTemplate.process(data, serviceFileWriter);
                 serviceFileWriter.close();
+
+
+                Template controllerTemplate = cfg.getTemplate("Controller.ftl");
+                Writer controllerFileWriter = new FileWriter(new File(controllerFolder + "/" + pojo.getJpaEntityName() +"Controller.java"));
+                controllerTemplate.process(data, controllerFileWriter);
+                controllerFileWriter.close();
 
 
 
