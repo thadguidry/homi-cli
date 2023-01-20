@@ -1,6 +1,6 @@
 ## Alias Generation
 
-jbang alias add -f . --name homi https://github.com/homihq/homi-cli/blob/master/HomiCli.java
+jbang alias add -f . --name homi https://github.com/homihq/homi-cli
 
 ## Host File
 
